@@ -1,0 +1,707 @@
+/* =====================================================
+   STYLES.CSS — versión unificada (CLARO / OSCURO)
+   ===================================================== */
+
+/* =========================
+   PALETA / TOKENS
+   ========================= */
+:root {
+  /* Marca base */
+  --brand-red-500-light: #d25445; /* rojo (claro) */
+
+  --brand-amber-400-light: #ffc422; /* ámbar “estrellas” (claro) */
+
+  /* Amarillo de acento (RRSS & estrellas) */
+  --accent-amber: var(--brand-amber-400-light);
+
+  /* Neutros */
+  --ink-750: #1a1a1a;
+  --ink-700: #1c1c1c;
+  --ink-500: #2a2a2a;
+
+  /* ===== MODO CLARO: 3 COLORES DE FONDO ===== */
+  --bg-navfooter-light: #000000; /* NAV & FOOTER */
+  --bg-hero-light: #111111; /* HERO + COLECCIONES + WHY-US */
+  --bg-content-light: #e9e9df; /* PRODUCTOS + MODA + REVIEWS */
+
+  /* ===== MODO OSCURO: 3 COLORES DE FONDO ===== */
+  --bg-navfooter-dark: #111111; /* NAV & FOOTER */
+  --bg-hero-dark: #0f0f0f; /* HERO + COLECCIONES + WHY-US */
+  --bg-content-dark: #141414; /* PRODUCTOS + MODA + REVIEWS */
+}
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+.navbar-custom {
+  background-color: var(--bg-navfooter-light);
+  border-bottom: 2px solid #b30000;
+}
+.navbar-brand img {
+  height: 40px;
+}
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+}
+.navbar-nav .nav-link:hover {
+  color: #b30000;
+}
+
+/* Iconos (cart, user, toggle): blancos en CLARO para que no se pierdan */
+.nav-icon {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: color 0.2s ease;
+}
+.nav-icon:hover {
+  color: #e10600;
+}
+
+[data-bs-theme="light"] .nav-icon {
+  color: #fff !important;
+}
+[data-bs-theme="light"] .nav-icon:hover {
+  color: #e10600 !important;
+}
+
+/* Hamburguesa blanca (custom) */
+.custom-toggler {
+  border: 2px solid #fff !important;
+  filter: invert(0) !important;
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: none !important;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon::after,
+.custom-toggler .navbar-toggler-icon span {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.custom-toggler .navbar-toggler-icon::before {
+  top: 0;
+}
+.custom-toggler .navbar-toggler-icon span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.custom-toggler .navbar-toggler-icon::after {
+  bottom: 0;
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+.hero {
+  background: var(--bg-hero-light);
+  min-height: 85vh;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+.hero-content {
+  position: relative;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+}
+.hero-logo {
+  width: 180px;
+  margin-bottom: 10px;
+}
+.hero-text {
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+.btn-buy {
+  background: #e10600;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 25px;
+  border: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.3s ease;
+}
+.btn-buy:hover {
+  background: #b30000;
+  box-shadow: 5px 5px 0 #000;
+}
+
+/* =====================================================
+   PRODUCTOS
+   ===================================================== */
+.productos {
+  background: var(--bg-content-light);
+}
+.productos-title {
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.product-card {
+  background: #fff;
+  border: 3px solid #000;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.product-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.product-body {
+  padding: 18px 22px 24px;
+  background: #f3f3f3;
+}
+.product-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 6px 0 8px;
+}
+.old-price {
+  color: #9a9a9a;
+  margin-bottom: 18px;
+}
+.btn-card {
+  background: #e10600;
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.btn-card:hover {
+  background: #b30000;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+@media (min-width: 1400px) {
+  .product-img {
+    height: 300px;
+  }
+}
+
+/* =====================================================
+   COLECCIONES
+   ===================================================== */
+.colecciones {
+  background: var(--bg-hero-light);
+  color: #fff;
+}
+.colecciones-title {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.colec-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 4px solid transparent;
+  aspect-ratio: 4/3;
+  text-decoration: none;
+  background: #1a1a1a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.colec-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.colec-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 12px;
+}
+.border-red {
+  border-color: #d33;
+}
+.border-gray {
+  border-color: #5a5050;
+}
+
+/* === Hover heredado de WHY-US (mismo comportamiento) === */
+.colec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+  border-color: #444;
+}
+.colec-card:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.85);
+}
+
+@media (min-width: 1400px) {
+  .colec-card {
+    aspect-ratio: 16/11;
+  }
+}
+
+/* =====================================================
+   MODA MUNDIAL AUTÉNTICA
+   ===================================================== */
+.moda-mundial {
+  background: var(--bg-content-light);
+}
+.moda-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.moda-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.moda-subtext {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+.moda-img {
+  border: 4px solid #000;
+  display: block;
+}
+.btn-moda {
+  background: #ffcc00;
+  border: 3px solid #000;
+  color: #000;
+  font-weight: 700;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.3s ease;
+}
+.btn-moda:hover {
+  background: #e6b800;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+/* =====================================================
+   WHY SHOP WITH US (CONFÍA EN NOSOTROS)
+   ===================================================== */
+.why-us {
+  background: var(--bg-hero-light);
+  color: #fff;
+}
+.why-title {
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Base tarjetas */
+.why-card {
+  padding: 28px 26px;
+  height: 100%;
+  border: 3px solid transparent;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  box-shadow: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+/* Hover base (se hereda a reviews & colecciones) */
+.why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Variantes desaturadas con bordes de color (CLARO) */
+.why-us .bg-red {
+  background: linear-gradient(
+      180deg,
+      rgba(210, 84, 69, 0.12),
+      rgba(210, 84, 69, 0.06)
+    ),
+    #1a1a1a;
+  border-color: var(--brand-red-500-light);
+}
+.why-us .bg-yellow {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 196, 34, 0.16),
+      rgba(255, 196, 34, 0.08)
+    ),
+    #1a1a1a;
+  border-color: var(--brand-amber-400-light);
+}
+
+.why-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #fff;
+}
+.why-heading {
+  margin: 6px 0 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.why-text {
+  margin: 0;
+  color: #f1f1f1;
+  line-height: 1.5;
+}
+
+.border-yellow-3 {
+  border-color: #ffd400;
+}
+.border-red-3 {
+  border-color: #c2332a;
+}
+.border-black-3 {
+  border-color: #111;
+}
+
+/* =====================================================
+   REVIEWS
+   ===================================================== */
+.reviews {
+  background: var(--bg-content-light);
+}
+.reviews-title {
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.review-card {
+  min-height: 200px;
+  border: 4px solid #000;
+  padding: 26px 24px;
+  display: grid;
+  gap: 14px;
+  box-shadow: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* hover heredado */
+}
+/* Hover igual que WHY-US */
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Fondos scopeados en reviews (si usás utilitarios) */
+.reviews .bg-dark-true {
+  background: #0e0e0e;
+  color: #fff;
+}
+.reviews .bg-red {
+  background: #d7321f;
+  color: #fff;
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: var(--accent-amber);
+  letter-spacing: 2px;
+}
+.review-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+.review-author {
+  margin: 0;
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+/* === Borde rojo en tarjetas específicas (1ª: Sarah M. — 3ª: EMMA L.) === */
+.reviews .row .col-12.col-lg-4:nth-child(1) .review-card,
+.reviews .row .col-12.col-lg-4:nth-child(3) .review-card {
+  border-color: var(--brand-red-500-light) !important;
+}
+
+@media (max-width: 991.98px) {
+  .review-card {
+    min-height: auto;
+  }
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer {
+  background: var(--bg-navfooter-light);
+  color: #fff;
+  border-top: 3px solid #b30000;
+  font-size: 0.95rem;
+}
+.footer-logo {
+  width: 120px;
+}
+.footer-desc {
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+/* RRSS SIEMPRE AMARILLO */
+.footer-social a {
+  display: inline-block;
+  color: var(--accent-amber) !important;
+  margin-right: 12px;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+.footer-social a:hover {
+  color: #e6b800 !important;
+}
+
+.footer-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li {
+  margin-bottom: 6px;
+}
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: #fff;
+}
+
+.newsletter-form {
+  margin-top: 10px;
+}
+.newsletter-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+}
+.newsletter-form button {
+  background: #d7321f;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 8px 14px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+.newsletter-form button:hover {
+  background: #b30000;
+}
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.whatsapp-fab:hover {
+  background: #128c7e;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.15);
+  margin: 1.5rem 0;
+}
+.footer-bottom-links a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+.footer-bottom-links a:hover {
+  color: #fff;
+}
+
+/* =====================================================
+   MODO OSCURO — 3 COLORES DE FONDO
+   ===================================================== */
+[data-bs-theme="dark"] {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+
+/* NAV/FOOTER */
+[data-bs-theme="dark"] .navbar-custom {
+  background-color: var(--bg-navfooter-dark);
+  border-bottom: 2px solid #e10600;
+}
+[data-bs-theme="dark"] .footer {
+  background: var(--bg-navfooter-dark);
+  color: #e0e0e0;
+  border-top-color: #e10600;
+}
+[data-bs-theme="dark"] .navbar-nav .nav-link {
+  color: #f3f3f3;
+}
+[data-bs-theme="dark"] .navbar-nav .nav-link:hover {
+  color: #ff5252;
+}
+[data-bs-theme="dark"] .nav-icon {
+  color: #fff;
+}
+[data-bs-theme="dark"] .nav-icon:hover {
+  color: #ff5252;
+}
+
+/* HERO + COLECCIONES + WHY-US */
+[data-bs-theme="dark"] .hero {
+  background: var(--bg-hero-dark);
+}
+[data-bs-theme="dark"] .hero::before {
+  background: rgba(0, 0, 0, 0.6);
+}
+[data-bs-theme="dark"] .hero-content {
+  background: rgba(20, 20, 20, 0.8);
+}
+
+[data-bs-theme="dark"] .colecciones,
+[data-bs-theme="dark"] .why-us {
+  background: var(--bg-hero-dark);
+}
+
+/* PRODUCTOS + MODA + REVIEWS */
+[data-bs-theme="dark"] .productos,
+[data-bs-theme="dark"] .moda-mundial,
+[data-bs-theme="dark"] .reviews {
+  background: var(--bg-content-dark);
+}
+
+/* Tarjetas en oscuro */
+[data-bs-theme="dark"] .product-card {
+  background: #1e1e1e;
+  border-color: #333;
+}
+[data-bs-theme="dark"] .product-body {
+  background: #222;
+}
+[data-bs-theme="dark"] .product-name {
+  color: #fff;
+}
+[data-bs-theme="dark"] .old-price {
+  color: #aaa;
+}
+
+[data-bs-theme="dark"] .colec-card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+[data-bs-theme="dark"] .colec-card img {
+  filter: brightness(0.6);
+}
+[data-bs-theme="dark"] .colec-label {
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .moda-title {
+  color: #fff;
+}
+[data-bs-theme="dark"] .moda-text,
+[data-bs-theme="dark"] .moda-subtext {
+  color: #ccc;
+}
+[data-bs-theme="dark"] .moda-img {
+  border-color: #333;
+}
+
+/* WHY-US (oscuro): desaturado con bordes de color */
+[data-bs-theme="dark"] .why-card {
+  background: var(--ink-700);
+  border: 1.5px solid var(--ink-500);
+  box-shadow: none;
+}
+[data-bs-theme="dark"] .why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  border-color: #3a3a3a;
+}
+[data-bs-theme="dark"] .why-us .bg-red {
+  background: linear-gradient(
+      180deg,
+      rgba(184, 74, 62, 0.16),
+      rgba(184, 74, 62, 0.08)
+    ),
+    var(--ink-700);
+  border-color: rgba(184, 74, 62, 0.45);
+}
+[data-bs-theme="dark"] .why-us .bg-yellow {
+  background: linear-gradient(
+      180deg,
+      rgba(224, 179, 74, 0.18),
+      rgba(224, 179, 74, 0.1)
+    ),
+    var(--ink-700);
+  border-color: rgba(224, 179, 74, 0.45);
+}
+[data-bs-theme="dark"] .why-heading {
+  color: #f4f4f4;
+}
+[data-bs-theme="dark"] .why-text {
+  color: #cfcfcf;
+}
+[data-bs-theme="dark"] .why-icon {
+  color: #e6e6e6;
+}
+
+/* REVIEWS oscuro */
+[data-bs-theme="dark"] .review-card {
+  background: #1e1e1e;
+  border-color: #333;
+}
+[data-bs-theme="dark"] .review-text {
+  color: #eaeaea;
+}
+[data-bs-theme="dark"] .review-author {
+  color: var(--accent-amber);
+}
