@@ -8,8 +8,13 @@
 :root {
   /* Marca base */
   --brand-red-500-light: #d25445; /* rojo (claro) */
-
   --brand-amber-400-light: #ffc422; /* ámbar “estrellas” (claro) */
+
+  /* === PALETA DE MARCA DEFINIDA === */
+  --accent-red: #e10600;
+  --accent-red-hover: #b30000;
+  --accent-yellow: var(--brand-amber-400-light); /* #ffc422 */
+  --accent-yellow-hover: #e6b800;
 
   /* Amarillo de acento (RRSS & estrellas) */
   --accent-amber: var(--brand-amber-400-light);
@@ -21,8 +26,8 @@
 
   /* ===== MODO CLARO: 3 COLORES DE FONDO ===== */
   --bg-navfooter-light: #000000; /* NAV & FOOTER */
-  --bg-hero-light: #111111; /* HERO + COLECCIONES + WHY-US */
-  --bg-content-light: #e9e9df; /* PRODUCTOS + MODA + REVIEWS */
+  --bg-hero-light: #111111; /* HERO (Se mantiene oscuro como intro) */
+  --bg-content-light: #e9e9df; /* PRODUCTOS + MODA + REVIEWS + COLECCIONES + WHY-US */
 
   /* ===== MODO OSCURO: 3 COLORES DE FONDO ===== */
   --bg-navfooter-dark: #111111; /* NAV & FOOTER */
@@ -35,7 +40,7 @@
    ===================================================== */
 .navbar-custom {
   background-color: var(--bg-navfooter-light);
-  border-bottom: 2px solid #b30000;
+  border-bottom: 2px solid var(--accent-red-hover);
 }
 .navbar-brand img {
   height: 40px;
@@ -45,7 +50,7 @@
   font-weight: 500;
 }
 .navbar-nav .nav-link:hover {
-  color: #b30000;
+  color: var(--accent-red-hover);
 }
 
 /* Iconos (cart, user, toggle): blancos en CLARO para que no se pierdan */
@@ -55,14 +60,14 @@
   transition: color 0.2s ease;
 }
 .nav-icon:hover {
-  color: #e10600;
+  color: var(--accent-red);
 }
 
 [data-bs-theme="light"] .nav-icon {
   color: #fff !important;
 }
 [data-bs-theme="light"] .nav-icon:hover {
-  color: #e10600 !important;
+  color: var(--accent-red) !important;
 }
 
 /* Hamburguesa blanca (custom) */
@@ -98,6 +103,22 @@
   bottom: 0;
 }
 
+/* Badge del carrito */
+.cart-badge {
+  background-color: var(--accent-yellow-hover) !important; /* Tu color pedido */
+  color: #000 !important; /* Texto negro para buen contraste */
+  font-size: 0.65rem; /* Hacemos el número un poco más chico */
+  padding: 0.3em 0.55em;
+
+  /* Oculto por defecto */
+  display: none;
+}
+
+/* Clase que JS añadirá para mostrar el badge */
+.cart-badge.show {
+  display: block;
+}
+
 /* =====================================================
    HERO
    ===================================================== */
@@ -129,7 +150,7 @@
   margin-bottom: 15px;
 }
 .btn-buy {
-  background: #e10600;
+  background: var(--accent-red);
   color: #fff;
   font-weight: bold;
   padding: 10px 25px;
@@ -141,7 +162,7 @@
   transition: all 0.3s ease;
 }
 .btn-buy:hover {
-  background: #b30000;
+  background: var(--accent-red-hover);
   box-shadow: 5px 5px 0 #000;
 }
 
@@ -184,7 +205,7 @@
   margin-bottom: 18px;
 }
 .btn-card {
-  background: #e10600;
+  background: var(--accent-red);
   color: #fff;
   font-weight: 700;
   padding: 12px 0;
@@ -196,7 +217,7 @@
     background-color 0.2s ease;
 }
 .btn-card:hover {
-  background: #b30000;
+  background: var(--accent-red-hover);
   transform: translate(-1px, -1px);
   box-shadow: 5px 5px 0 #000;
 }
@@ -211,8 +232,8 @@
    COLECCIONES
    ===================================================== */
 .colecciones {
-  background: var(--bg-hero-light);
-  color: #fff;
+  background: var(--bg-content-light); /* CAMBIO: Unificado modo claro */
+  color: #111; /* CAMBIO: Texto oscuro para fondo claro */
 }
 .colecciones-title {
   font-weight: 600;
@@ -234,7 +255,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.7);
+  filter: brightness(1); /* CAMBIO: Imagen brillante en modo claro */
   transition: transform 0.35s ease, filter 0.35s ease;
 }
 .colec-label {
@@ -260,12 +281,12 @@
 /* === Hover heredado de WHY-US (mismo comportamiento) === */
 .colec-card:hover {
   transform: translateY(-3px);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1); /* CAMBIO: Sombra sutil modo claro */
   border-color: #444;
 }
 .colec-card:hover img {
   transform: scale(1.04);
-  filter: brightness(0.85);
+  filter: brightness(1);
 }
 
 @media (min-width: 1400px) {
@@ -300,7 +321,7 @@
   display: block;
 }
 .btn-moda {
-  background: #ffcc00;
+  background: var(--accent-yellow);
   border: 3px solid #000;
   color: #000;
   font-weight: 700;
@@ -310,7 +331,7 @@
   transition: all 0.3s ease;
 }
 .btn-moda:hover {
-  background: #e6b800;
+  background: var(--accent-yellow-hover);
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 #000;
 }
@@ -319,8 +340,8 @@
    WHY SHOP WITH US (CONFÍA EN NOSOTROS)
    ===================================================== */
 .why-us {
-  background: var(--bg-hero-light);
-  color: #fff;
+  background: var(--bg-content-light); /* CAMBIO: Unificado modo claro */
+  color: #111; /* CAMBIO: Texto oscuro para fondo claro */
 }
 .why-title {
   letter-spacing: 2px;
@@ -337,37 +358,30 @@
   align-content: start;
   box-shadow: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  background: #ffffff; /* CAMBIO: Fondo blanco base modo claro */
+  border: 3px solid #eee; /* CAMBIO: Borde claro base modo claro */
 }
-/* Hover base (se hereda a reviews & colecciones) */
+/* Hover base */
 .why-card:hover {
   transform: translateY(-3px);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1); /* CAMBIO: Sombra sutil modo claro */
+  border-color: #ddd;
 }
 
-/* Variantes desaturadas con bordes de color (CLARO) */
+/* Variantes de color MODO CLARO */
 .why-us .bg-red {
-  background: linear-gradient(
-      180deg,
-      rgba(210, 84, 69, 0.12),
-      rgba(210, 84, 69, 0.06)
-    ),
-    #1a1a1a;
+  background: #fdf5f4;
   border-color: var(--brand-red-500-light);
 }
 .why-us .bg-yellow {
-  background: linear-gradient(
-      180deg,
-      rgba(255, 196, 34, 0.16),
-      rgba(255, 196, 34, 0.08)
-    ),
-    #1a1a1a;
+  background: #fffbf0;
   border-color: var(--brand-amber-400-light);
 }
 
 .why-icon {
   font-size: 2.2rem;
   line-height: 1;
-  color: #fff;
+  color: #111; /* CAMBIO: Icono oscuro para fondo claro */
 }
 .why-heading {
   margin: 6px 0 4px;
@@ -375,16 +389,16 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #fff;
+  color: #111; /* CAMBIO: Texto oscuro para fondo claro */
 }
 .why-text {
   margin: 0;
-  color: #f1f1f1;
+  color: #555; /* CAMBIO: Texto oscuro para fondo claro */
   line-height: 1.5;
 }
 
 .border-yellow-3 {
-  border-color: #ffd400;
+  border-color: var(--accent-yellow);
 }
 .border-red-3 {
   border-color: #c2332a;
@@ -464,7 +478,7 @@
 .footer {
   background: var(--bg-navfooter-light);
   color: #fff;
-  border-top: 3px solid #b30000;
+  border-top: 3px solid var(--accent-red-hover);
   font-size: 0.95rem;
 }
 .footer-logo {
@@ -484,7 +498,7 @@
   transition: color 0.3s ease;
 }
 .footer-social a:hover {
-  color: #e6b800 !important;
+  color: var(--accent-yellow-hover) !important;
 }
 
 .footer-title {
@@ -528,7 +542,7 @@
   transition: background-color 0.3s ease;
 }
 .newsletter-form button:hover {
-  background: #b30000;
+  background: var(--accent-red-hover);
 }
 
 .whatsapp-fab {
@@ -575,12 +589,12 @@
 /* NAV/FOOTER */
 [data-bs-theme="dark"] .navbar-custom {
   background-color: var(--bg-navfooter-dark);
-  border-bottom: 2px solid #e10600;
+  border-bottom: 2px solid var(--accent-red);
 }
 [data-bs-theme="dark"] .footer {
   background: var(--bg-navfooter-dark);
   color: #e0e0e0;
-  border-top-color: #e10600;
+  border-top-color: var(--accent-red);
 }
 [data-bs-theme="dark"] .navbar-nav .nav-link {
   color: #f3f3f3;
@@ -609,6 +623,7 @@
 [data-bs-theme="dark"] .colecciones,
 [data-bs-theme="dark"] .why-us {
   background: var(--bg-hero-dark);
+  color: #fff; /* Re-establece el color de texto para modo oscuro */
 }
 
 /* PRODUCTOS + MODA + REVIEWS */
@@ -638,7 +653,15 @@
   border-color: #333;
 }
 [data-bs-theme="dark"] .colec-card img {
-  filter: brightness(0.6);
+  filter: brightness(0.6); /* Devuelve el filtro oscuro a la imagen */
+}
+[data-bs-theme="dark"] .colec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6); /* Sombra oscura original */
+  border-color: #444;
+}
+[data-bs-theme="dark"] .colec-card:hover img {
+  filter: brightness(0.85);
 }
 [data-bs-theme="dark"] .colec-label {
   color: #fff;
@@ -704,4 +727,8 @@
 }
 [data-bs-theme="dark"] .review-author {
   color: var(--accent-amber);
+}
+
+[data-bs-theme="light"] #popupEnviado .modal-content {
+  color: #111;
 }
