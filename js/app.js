@@ -7,7 +7,7 @@
 
   const miModal = new bootstrap.Modal(modalEl);
 
-  // Añade el listener para el evento 'submit'
+  // Añade el listener para el evento 'submit' y enviar
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -17,7 +17,7 @@
   });
 })();
 
-// ==== Toggle de tema con iconos ====
+// ==== Toggle de tema claro y oscuro con iconos ====
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   const toggleBtn = document.getElementById("themeToggle");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//  Carrito de Compras
+//  ==Carrito de Compras==
 (function () {
   let cartItems = {};
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartEmptyMessage.style.display = "none";
       cartItemList.style.display = "block";
       cartTotalContainer.style.display = "block";
-
+      //Mostrar el producto la cantidad y el precio sumado
       itemNames.forEach((productName) => {
         const item = cartItems[productName];
         const quantity = item.quantity;
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cartTotalAmount.innerText = `$${totalAmount.toFixed(2)}`;
   }
 
-  //  manejar el clic en "COMPRAR"
+  //  manejar el clic en "COMPRAR" en la sección de productos
   function handleAddToCart(event) {
     event.preventDefault();
     const button = event.target;
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!productName || isNaN(productPrice)) return;
 
-    // Si el producto no está en el carrito, añadirlo
+    // Agregar el producto Si  no está en el carrito,
     if (!cartItems[productName]) {
       cartItems[productName] = {
         quantity: 0,
@@ -183,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // --- INICIO: Animación On-Scroll ---
 document.addEventListener("DOMContentLoaded", () => {
-  // Configuración del observador
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
