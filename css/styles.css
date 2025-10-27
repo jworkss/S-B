@@ -544,7 +544,7 @@
 /* Fondos scopeados en reviews */
 .reviews .bg-dark-true {
   background: #0e0e0e;
-  color: #fff;
+  color: var(--bg-content-light);
 }
 .reviews .bg-red {
   background: #d7321f;
@@ -559,7 +559,7 @@
 .review-text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #fff;
   margin: 0;
 }
 .review-author {
