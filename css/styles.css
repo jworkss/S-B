@@ -226,6 +226,9 @@
 
 /*    PRODUCTOS
     */
+#productos {
+  scroll-margin-top: 50px;
+}
 .productos {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
@@ -328,6 +331,10 @@
 
 /*    COLECCIONES
     */
+
+#colecciones {
+  scroll-margin-top: 50px;
+}
 .colecciones {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
@@ -394,6 +401,9 @@
 }
 
 /*    MODA MUNDIAL AUTÉNTICA */
+#nosotros {
+  scroll-margin-top: 50px;
+}
 .moda-mundial {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
@@ -504,6 +514,9 @@
 }
 
 /*    REVIEWS */
+#reviews {
+  scroll-margin-top: 50px;
+}
 .reviews {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
