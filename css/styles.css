@@ -126,7 +126,10 @@
   background: var(--bg-hero-light);
   min-height: 85vh;
   position: relative;
+  display: flex;
+  align-items: center;
 }
+
 .hero::before {
   content: "";
   position: absolute;
@@ -149,6 +152,58 @@
   letter-spacing: 1px;
   margin-bottom: 15px;
 }
+/* =====================================================
+   HERO - FONDOS RESPONSIVOS (VIDEO / IMAGEN)
+   ===================================================== */
+
+/* 1. Estilos base para AMBOS fondos */
+.hero-video-bg,
+.hero-image-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Los pone detrás del contenido */
+}
+
+/* Asegura que el video y la imagen 
+  se comporten como 'background-size: cover' 
+*/
+.hero-video-bg,
+.hero-image-bg img,
+.hero-image-bg source {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. Lógica de "intercambio" (Mobile-First) */
+
+/* Por defecto (Móvil):
+   - Ocultamos el video
+   - Mostramos la imagen .webp
+*/
+.hero-video-bg {
+  display: none;
+}
+.hero-image-bg {
+  display: block;
+}
+
+/* En Desktop (usamos 768px como punto de quiebre, ajústalo si quieres):
+   - Mostramos el video
+   - Ocultamos la imagen
+*/
+@media (min-width: 768px) {
+  .hero-video-bg {
+    display: block;
+  }
+  .hero-image-bg {
+    display: none;
+  }
+}
+
 .btn-buy {
   background: var(--accent-red);
   color: #fff;
