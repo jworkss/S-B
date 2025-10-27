@@ -54,7 +54,13 @@
         </div>
 
         <div class="d-flex align-items-center gap-3">
-          <a href="#" class="nav-icon position-relative" aria-label="Carrito">
+          <a
+            href="#"
+            class="nav-icon position-relative"
+            aria-label="Carrito"
+            data-bs-toggle="modal"
+            data-bs-target="#cartModal"
+          >
             <i class="bi bi-cart3"></i>
             <span
               id="cartCountBadge"
@@ -101,7 +107,13 @@
               <div class="product-body">
                 <h3 class="product-name">BUZOS</h3>
                 <p class="old-price">$89.99</p>
-                <a href="#" class="btn btn-card">COMPRAR</a>
+                <a
+                  href="#"
+                  class="btn btn-card"
+                  data-product-name="BUZOS"
+                  data-price="89.99"
+                  >COMPRAR</a
+                >
               </div>
             </article>
           </div>
@@ -112,7 +124,13 @@
               <div class="product-body">
                 <h3 class="product-name">CAMPERAS</h3>
                 <p class="old-price">$159.99</p>
-                <a href="#" class="btn btn-card">COMPRAR</a>
+                <a
+                  href="#"
+                  class="btn btn-card"
+                  data-product-name="CAMPERAS"
+                  data-price="159.99"
+                  >COMPRAR</a
+                >
               </div>
             </article>
           </div>
@@ -123,7 +141,13 @@
               <div class="product-body">
                 <h3 class="product-name">CARGOS</h3>
                 <p class="old-price">$79.99</p>
-                <a href="#" class="btn btn-card">COMPRAR</a>
+                <a
+                  href="#"
+                  class="btn btn-card"
+                  data-product-name="CARGOS"
+                  data-price="79.99"
+                  >COMPRAR</a
+                >
               </div>
             </article>
           </div>
@@ -138,7 +162,13 @@
               <div class="product-body">
                 <h3 class="product-name">ZAPATILLAS</h3>
                 <p class="old-price">$119.99</p>
-                <a href="#" class="btn btn-card">COMPRAR</a>
+                <a
+                  href="#"
+                  class="btn btn-card"
+                  data-product-name="ZAPATILLAS"
+                  data-price="119.99"
+                  >COMPRAR</a
+                >
               </div>
             </article>
           </div>
@@ -419,6 +449,49 @@
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
             <a href="#">Shipping Policy</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="cartModal"
+        tabindex="-1"
+        aria-labelledby="cartModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cartModalLabel">Mi Carrito</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="cartModalBody">
+              <div id="cartItemList"></div>
+              <p id="cartEmptyMessage" class="text-center">
+                Tu carrito está vacío.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <div id="cartTotalContainer">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-amount">$0.00</span>
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button type="button" class="btn btn-buy">
+                Finalizar Compra
+              </button>
+            </div>
           </div>
         </div>
       </div>
