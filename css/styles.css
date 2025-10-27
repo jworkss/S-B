@@ -1,19 +1,12 @@
-/* =====================================================
-   STYLES.CSS — versión unificada (CLARO / OSCURO)
-   ===================================================== */
-
-/* =========================
-   PALETA / TOKENS
-   ========================= */
+/*    PALETA
+    */
 :root {
-  /* Marca base */
-  --brand-red-500-light: #d25445; /* rojo (claro) */
-  --brand-amber-400-light: #ffc422; /* ámbar “estrellas” (claro) */
+  --brand-red-500-light: #d25445;
+  --brand-amber-400-light: #ffc422;
 
-  /* === PALETA DE MARCA DEFINIDA === */
   --accent-red: #e10600;
   --accent-red-hover: #b30000;
-  --accent-yellow: var(--brand-amber-400-light); /* #ffc422 */
+  --accent-yellow: var(--brand-amber-400-light);
   --accent-yellow-hover: #e6b800;
 
   /* Amarillo de acento (RRSS & estrellas) */
@@ -25,19 +18,16 @@
   --ink-500: #2a2a2a;
 
   /* ===== MODO CLARO: 3 COLORES DE FONDO ===== */
-  --bg-navfooter-light: #000000; /* NAV & FOOTER */
-  --bg-hero-light: #111111; /* HERO (Se mantiene oscuro como intro) */
-  --bg-content-light: #e9e9df; /* PRODUCTOS + MODA + REVIEWS + COLECCIONES + WHY-US */
-
+  --bg-navfooter-light: #000000;
+  --bg-hero-light: #111111;
+  --bg-content-light: #e9e9df;
   /* ===== MODO OSCURO: 3 COLORES DE FONDO ===== */
-  --bg-navfooter-dark: #111111; /* NAV & FOOTER */
-  --bg-hero-dark: #0f0f0f; /* HERO + COLECCIONES + WHY-US */
-  --bg-content-dark: #141414; /* PRODUCTOS + MODA + REVIEWS */
+  --bg-navfooter-dark: #111111;
+  --bg-hero-dark: #0f0f0f;
+  --bg-content-dark: #141414;
 }
 
-/* =====================================================
-   NAVBAR
-   ===================================================== */
+/*    NAVBAR */
 .navbar-custom {
   background-color: var(--bg-navfooter-light);
   border-bottom: 2px solid var(--accent-red-hover);
@@ -53,7 +43,7 @@
   color: var(--accent-red-hover);
 }
 
-/* Iconos (cart, user, toggle): blancos en CLARO para que no se pierdan */
+/* Iconos blancos en CLARO para que no se pierdan */
 .nav-icon {
   color: #fff;
   font-size: 1.4rem;
@@ -103,25 +93,18 @@
   bottom: 0;
 }
 
-/* Badge del carrito */
 .cart-badge {
-  background-color: var(--accent-yellow-hover) !important; /* Tu color pedido */
-  color: #000 !important; /* Texto negro para buen contraste */
-  font-size: 0.65rem; /* Hacemos el número un poco más chico */
+  background-color: var(--accent-yellow-hover) !important;
+  color: #000 !important;
+  font-size: 0.65rem;
   padding: 0.3em 0.55em;
-
-  /* Oculto por defecto */
   display: none;
 }
-
-/* Clase que JS añadirá para mostrar el badge */
 .cart-badge.show {
   display: block;
 }
 
-/* =====================================================
-   HERO
-   ===================================================== */
+/*    HERO */
 .hero {
   background: var(--bg-hero-light);
   min-height: 85vh;
@@ -152,11 +135,8 @@
   letter-spacing: 1px;
   margin-bottom: 15px;
 }
-/* =====================================================
-   HERO - FONDOS RESPONSIVOS (VIDEO / IMAGEN)
-   ===================================================== */
+/*    HERO - FONDOS RESPONSIVOS*/
 
-/* 1. Estilos base para AMBOS fondos */
 .hero-video-bg,
 .hero-image-bg {
   position: absolute;
@@ -164,12 +144,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Los pone detrás del contenido */
+  z-index: 0;
 }
 
-/* Asegura que el video y la imagen 
-  se comporten como 'background-size: cover' 
-*/
 .hero-video-bg,
 .hero-image-bg img,
 .hero-image-bg source {
@@ -178,12 +155,6 @@
   object-fit: cover;
 }
 
-/* 2. Lógica de "intercambio" (Mobile-First) */
-
-/* Por defecto (Móvil):
-   - Ocultamos el video
-   - Mostramos la imagen .webp
-*/
 .hero-video-bg {
   display: none;
 }
@@ -191,10 +162,6 @@
   display: block;
 }
 
-/* En Desktop (usamos 768px como punto de quiebre, ajústalo si quieres):
-   - Mostramos el video
-   - Ocultamos la imagen
-*/
 @media (min-width: 768px) {
   .hero-video-bg {
     display: block;
@@ -221,9 +188,8 @@
   box-shadow: 5px 5px 0 #000;
 }
 
-/* =====================================================
-   PRODUCTOS
-   ===================================================== */
+/*    PRODUCTOS
+    */
 .productos {
   background: var(--bg-content-light);
 }
@@ -283,12 +249,11 @@
   }
 }
 
-/* =====================================================
-   COLECCIONES
-   ===================================================== */
+/*    COLECCIONES
+    */
 .colecciones {
-  background: var(--bg-content-light); /* CAMBIO: Unificado modo claro */
-  color: #111; /* CAMBIO: Texto oscuro para fondo claro */
+  background: var(--bg-content-light);
+  color: #111;
 }
 .colecciones-title {
   font-weight: 600;
@@ -310,7 +275,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(1); /* CAMBIO: Imagen brillante en modo claro */
+  filter: brightness(1);
   transition: transform 0.35s ease, filter 0.35s ease;
 }
 .colec-label {
@@ -333,10 +298,10 @@
   border-color: #5a5050;
 }
 
-/* === Hover heredado de WHY-US (mismo comportamiento) === */
+/* === Hover heredado de WHY-US  */
 .colec-card:hover {
   transform: translateY(-3px);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1); /* CAMBIO: Sombra sutil modo claro */
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
   border-color: #444;
 }
 .colec-card:hover img {
@@ -350,9 +315,7 @@
   }
 }
 
-/* =====================================================
-   MODA MUNDIAL AUTÉNTICA
-   ===================================================== */
+/*    MODA MUNDIAL AUTÉNTICA */
 .moda-mundial {
   background: var(--bg-content-light);
 }
@@ -391,19 +354,17 @@
   box-shadow: 5px 5px 0 #000;
 }
 
-/* =====================================================
-   WHY SHOP WITH US (CONFÍA EN NOSOTROS)
-   ===================================================== */
+/*  (CONFÍA EN NOSOTROS)
+    */
 .why-us {
-  background: var(--bg-content-light); /* CAMBIO: Unificado modo claro */
-  color: #111; /* CAMBIO: Texto oscuro para fondo claro */
+  background: var(--bg-content-light);
+  color: #111;
 }
 .why-title {
   letter-spacing: 2px;
   font-weight: 600;
 }
 
-/* Base tarjetas */
 .why-card {
   padding: 28px 26px;
   height: 100%;
@@ -413,13 +374,13 @@
   align-content: start;
   box-shadow: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  background: #ffffff; /* CAMBIO: Fondo blanco base modo claro */
-  border: 3px solid #eee; /* CAMBIO: Borde claro base modo claro */
+  background: #ffffff;
+  border: 3px solid #eee;
 }
 /* Hover base */
 .why-card:hover {
   transform: translateY(-3px);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1); /* CAMBIO: Sombra sutil modo claro */
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
   border-color: #ddd;
 }
 
@@ -436,7 +397,7 @@
 .why-icon {
   font-size: 2.2rem;
   line-height: 1;
-  color: #111; /* CAMBIO: Icono oscuro para fondo claro */
+  color: #111;
 }
 .why-heading {
   margin: 6px 0 4px;
@@ -444,11 +405,11 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #111; /* CAMBIO: Texto oscuro para fondo claro */
+  color: #111;
 }
 .why-text {
   margin: 0;
-  color: #555; /* CAMBIO: Texto oscuro para fondo claro */
+  color: #555;
   line-height: 1.5;
 }
 
@@ -462,9 +423,7 @@
   border-color: #111;
 }
 
-/* =====================================================
-   REVIEWS
-   ===================================================== */
+/*    REVIEWS */
 .reviews {
   background: var(--bg-content-light);
 }
@@ -480,7 +439,7 @@
   display: grid;
   gap: 14px;
   box-shadow: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* hover heredado */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 /* Hover igual que WHY-US */
 .review-card:hover {
@@ -488,7 +447,7 @@
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
 }
 
-/* Fondos scopeados en reviews (si usás utilitarios) */
+/* Fondos scopeados en reviews */
 .reviews .bg-dark-true {
   background: #0e0e0e;
   color: #fff;
@@ -515,7 +474,6 @@
   font-weight: 700;
 }
 
-/* === Borde rojo en tarjetas específicas (1ª: Sarah M. — 3ª: EMMA L.) === */
 .reviews .row .col-12.col-lg-4:nth-child(1) .review-card,
 .reviews .row .col-12.col-lg-4:nth-child(3) .review-card {
   border-color: var(--brand-red-500-light) !important;
@@ -527,9 +485,7 @@
   }
 }
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
+/* FOOTER */
 .footer {
   background: var(--bg-navfooter-light);
   color: #fff;
@@ -633,9 +589,7 @@
   color: #fff;
 }
 
-/* =====================================================
-   MODO OSCURO — 3 COLORES DE FONDO
-   ===================================================== */
+/* MODO OSCURO — 3 COLORES DE FONDO */
 [data-bs-theme="dark"] {
   background-color: #0d0d0d;
   color: #e0e0e0;
@@ -678,7 +632,7 @@
 [data-bs-theme="dark"] .colecciones,
 [data-bs-theme="dark"] .why-us {
   background: var(--bg-hero-dark);
-  color: #fff; /* Re-establece el color de texto para modo oscuro */
+  color: #fff;
 }
 
 /* PRODUCTOS + MODA + REVIEWS */
@@ -708,11 +662,11 @@
   border-color: #333;
 }
 [data-bs-theme="dark"] .colec-card img {
-  filter: brightness(0.6); /* Devuelve el filtro oscuro a la imagen */
+  filter: brightness(0.6);
 }
 [data-bs-theme="dark"] .colec-card:hover {
   transform: translateY(-3px);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6); /* Sombra oscura original */
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
   border-color: #444;
 }
 [data-bs-theme="dark"] .colec-card:hover img {
@@ -733,7 +687,7 @@
   border-color: #333;
 }
 
-/* WHY-US (oscuro): desaturado con bordes de color */
+/* WHY-US (oscuro): */
 [data-bs-theme="dark"] .why-card {
   background: var(--ink-700);
   border: 1.5px solid var(--ink-500);
@@ -788,22 +742,18 @@
   color: #111;
 }
 
-/* =====================================================
-   ESTILOS MODAL CARRITO
-   ===================================================== */
+/* ESTILOS MODAL CARRITO */
 
-/* Oculta el mensaje de vacío por defecto */
 #cartEmptyMessage {
   display: none;
 }
 
-/* Estilo para cada fila de item en el carrito */
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid; /* El color se define por tema */
+  border-bottom: 1px solid;
 }
 
 .cart-item-name {
@@ -847,7 +797,7 @@
 }
 
 .btn-cart-remove {
-  background-color: #6c757d; /* Gris de Bootstrap */
+  background-color: #6c757d;
 }
 .btn-cart-remove:hover {
   background-color: #5a6268;
@@ -855,14 +805,13 @@
 
 /* --- Colores de Tema para el Modal --- */
 
-/* Borde en Modo Claro */
 [data-bs-theme="light"] .cart-item {
-  border-color: #e9ecef; /* Borde claro */
+  border-color: #e9ecef;
 }
 
 /* Borde en Modo Oscuro */
 [data-bs-theme="dark"] .cart-item {
-  border-color: var(--ink-500); /* Borde oscuro */
+  border-color: var(--ink-500);
 }
 
 /* Fix para el botón "Finalizar Compra" en el footer del modal */
@@ -879,12 +828,11 @@
   color: #111;
 }
 
-/* Estilos para el contenedor del Total */
 #cartTotalContainer {
-  margin-right: auto; /* Empuja el total a la izquierda */
+  margin-right: auto;
   font-size: 1.2rem;
   font-weight: bold;
-  display: none; /* Oculto por defecto, JS lo muestra si hay items */
+  display: none;
 }
 
 .cart-total-label {
@@ -892,7 +840,6 @@
   margin-right: 8px;
 }
 
-/* Color del monto total (para modo claro y oscuro) */
 .cart-total-amount {
   color: var(--accent-red);
 }

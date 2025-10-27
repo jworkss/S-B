@@ -1,24 +1,18 @@
-// ==== Manejador del formulario del Newsletter ====
+//  formulario del Newsletter
 (function () {
-  // Busca el formulario y el modal en el DOM
   const form = document.getElementById("miFormulario");
   const modalEl = document.getElementById("popupEnviado");
 
-  // Si no existen, no hace nada
   if (!form || !modalEl) return;
 
-  // Inicializa el modal de Bootstrap
   const miModal = new bootstrap.Modal(modalEl);
 
   // Añade el listener para el evento 'submit'
   form.addEventListener("submit", (event) => {
-    // Previene que la página se recargue
     event.preventDefault();
 
-    // Muestra el modal
     miModal.show();
 
-    // Resetea el formulario
     form.reset();
   });
 })();
@@ -47,15 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ==== Manejador del Carrito de Compras (Avanzado) ====
-// ==== Manejador del Carrito de Compras (Avanzado con Total) ====
+//  Carrito de Compras
 (function () {
-  // 1. Almacén de datos
-  // Ahora guarda cantidad Y precio
-  // Ej: { "BUZOS": { quantity: 2, price: 89.99 } }
   let cartItems = {};
 
-  // 2. Seleccionar elementos del DOM
   const allBuyButtons = document.querySelectorAll(".btn-card");
   const cartBadge = document.getElementById("cartCountBadge");
   const cartModalBody = document.getElementById("cartModalBody");
@@ -66,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartTotalContainer = document.getElementById("cartTotalContainer");
   const cartTotalAmount = document.querySelector(".cart-total-amount");
 
-  // Si faltan elementos clave, no continuar
   if (
     !cartBadge ||
     !cartItemList ||
@@ -78,9 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // 3. Función principal para renderizar (actualizar) el carrito
   function updateCart() {
-    // Limpiar el contenido actual
     cartItemList.innerHTML = "";
 
     let totalCount = 0;
@@ -93,12 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItemList.style.display = "none";
       cartTotalContainer.style.display = "none"; // Ocultar total
     } else {
-      // Ocultar mensaje de carrito vacío
       cartEmptyMessage.style.display = "none";
       cartItemList.style.display = "block";
-      cartTotalContainer.style.display = "block"; // Mostrar total
+      cartTotalContainer.style.display = "block";
 
-      // Construir y añadir cada item al modal
       itemNames.forEach((productName) => {
         const item = cartItems[productName];
         const quantity = item.quantity;
@@ -107,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         totalCount += quantity;
         totalAmount += quantity * price;
 
-        // Plantilla HTML para cada item en el carrito
         const itemHTML = `
           <div class="cart-item">
             <span class="cart-item-name">${productName}</span>
@@ -134,21 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Actualizar el "globo" (badge) del carrito
+    // Actualizar  (badge) del carrito
     cartBadge.innerText = totalCount;
     cartBadge.classList.toggle("show", totalCount > 0);
 
-    // Actualizar el monto Total en el footer del modal
-    // .toFixed(2) asegura que siempre muestre dos decimales (ej. $15.50)
     cartTotalAmount.innerText = `$${totalAmount.toFixed(2)}`;
   }
 
-  // 4. Función para manejar el clic en "COMPRAR"
+  //  manejar el clic en "COMPRAR"
   function handleAddToCart(event) {
     event.preventDefault();
     const button = event.target;
     const productName = button.dataset.productName;
-    const productPrice = parseFloat(button.dataset.price); // Convertir a número
+    const productPrice = parseFloat(button.dataset.price);
 
     if (!productName || isNaN(productPrice)) return;
 
@@ -167,13 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCart();
   }
 
-  // 5. Función para manejar los botones + y - DENTRO del modal
+  //  manejar los botones + y -
   function handleCartAdjust(event) {
     const clickedButton = event.target.closest(".btn-cart-adjust");
-    if (!clickedButton) return; // Salir si no se hizo clic en un botón
+    if (!clickedButton) return;
 
     const productName = clickedButton.dataset.productName;
-    if (!cartItems[productName]) return; // Seguridad
+    if (!cartItems[productName]) return;
 
     if (clickedButton.classList.contains("btn-cart-add")) {
       // Botón +
@@ -191,16 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCart();
   }
 
-  // 6. Asignar los "oyentes" de eventos
-
-  // A los botones "COMPRAR" de la página
   allBuyButtons.forEach((button) => {
     button.addEventListener("click", handleAddToCart);
   });
 
-  // Al cuerpo del modal (usando delegación de eventos para los botones + y -)
   cartItemList.addEventListener("click", handleCartAdjust);
 
-  // 7. Inicializar el carrito al cargar la página
   updateCart();
 })();
