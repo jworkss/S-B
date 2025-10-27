@@ -180,3 +180,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCart();
 })();
+
+// --- INICIO: Animación On-Scroll ---
+document.addEventListener("DOMContentLoaded", () => {
+  // Configuración del observador
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1, // La animación se dispara al ver el 10% del elemento
+    }
+  );
+
+  const targets = document.querySelectorAll(
+    ".productos-title, .product-card, " +
+      ".colecciones-title, .colec-card, " +
+      ".moda-title, .moda-text, .moda-subtext, .btn-moda, .moda-img, " +
+      ".why-title, .why-card, " +
+      ".reviews-title, .review-card"
+  );
+
+  targets.forEach((target) => {
+    target.classList.add("animate-on-scroll");
+    observer.observe(target);
+  });
+});
+// --- FIN: Animación On-Scroll ---

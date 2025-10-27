@@ -27,10 +27,35 @@
   --bg-content-dark: #141414;
 }
 
+/* --- INICIO: Animaciones --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- FIN: Animaciones  --- */
+
 /*    NAVBAR */
 .navbar-custom {
   background-color: var(--bg-navfooter-light);
   border-bottom: 2px solid var(--accent-red-hover);
+  animation: fadeInDown 0.8s ease-out;
 }
 .navbar-brand img {
   height: 40px;
@@ -128,12 +153,16 @@
 .hero-logo {
   width: 180px;
   margin-bottom: 10px;
+  animation: fadeInUp 0.6s ease-out 0.2s; /* 0.2s de retraso */
+  animation-fill-mode: backwards; /*  animación  antes de empezar */
 }
 .hero-text {
   color: #fff;
   font-size: 0.9rem;
   letter-spacing: 1px;
   margin-bottom: 15px;
+  animation: fadeInUp 0.6s ease-out 0.4s;
+  animation-fill-mode: backwards;
 }
 /*    HERO - FONDOS RESPONSIVOS*/
 
@@ -182,6 +211,8 @@
   display: inline-block;
   box-shadow: 3px 3px 0 #000;
   transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out 0.6s;
+  animation-fill-mode: backwards;
 }
 .btn-buy:hover {
   background: var(--accent-red-hover);
@@ -843,3 +874,69 @@
 .cart-total-amount {
   color: var(--accent-red);
 }
+
+/* --- INICIO: Animaciones On-Scroll --- */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--delay, 0s);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Productos (4 columnas) */
+.productos .row .col-12:nth-child(1) .product-card.is-visible {
+  transition-delay: 0ms;
+}
+.productos .row .col-12:nth-child(2) .product-card.is-visible {
+  transition-delay: 100ms;
+}
+.productos .row .col-12:nth-child(3) .product-card.is-visible {
+  transition-delay: 200ms;
+}
+.productos .row .col-12:nth-child(4) .product-card.is-visible {
+  transition-delay: 300ms;
+}
+
+/* Colecciones (3 columnas) */
+.colecciones .row .col-12:nth-child(1) .colec-card.is-visible {
+  transition-delay: 0ms;
+}
+.colecciones .row .col-12:nth-child(2) .colec-card.is-visible {
+  transition-delay: 150ms;
+}
+.colecciones .row .col-12:nth-child(3) .colec-card.is-visible {
+  transition-delay: 300ms;
+}
+
+/* Why Us (4 columnas) */
+.why-us .row .col-12:nth-child(1) .why-card.is-visible {
+  transition-delay: 0ms;
+}
+.why-us .row .col-12:nth-child(2) .why-card.is-visible {
+  transition-delay: 100ms;
+}
+.why-us .row .col-12:nth-child(3) .why-card.is-visible {
+  transition-delay: 200ms;
+}
+.why-us .row .col-12:nth-child(4) .why-card.is-visible {
+  transition-delay: 300ms;
+}
+
+/* Reviews (3 columnas) */
+.reviews .row .col-12:nth-child(1) .review-card.is-visible {
+  transition-delay: 0ms;
+}
+.reviews .row .col-12:nth-child(2) .review-card.is-visible {
+  transition-delay: 150ms;
+}
+.reviews .row .col-12:nth-child(3) .review-card.is-visible {
+  transition-delay: 300ms;
+}
+
+/* --- FIN: Animaciones On-Scroll --- */
