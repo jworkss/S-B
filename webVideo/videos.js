@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "videos/corriendo.mp4",
     "videos/jump.mp4",
     "videos/stand.mp4",
-    "img/seleccioens/hero/video.mp4",
+    "../img/seleccioens/hero/video_1.mp4",
   ];
   // podes agregar todos los que quieras
 
