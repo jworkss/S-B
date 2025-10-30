@@ -105,6 +105,7 @@ body {
   border: 2px solid #fff !important;
   filter: invert(0) !important;
 }
+
 .custom-toggler .navbar-toggler-icon {
   background-image: none !important;
   position: relative;
@@ -132,6 +133,32 @@ body {
 .custom-toggler .navbar-toggler-icon::after {
   bottom: 0;
 }
+
+/* === INICIO: Animación de Hamburguesa a "X" === */
+
+/* Transición suave para las 3 líneas */
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon span,
+.custom-toggler .navbar-toggler-icon::after {
+  transition: all 0.3s ease;
+}
+
+/* Cuando el menú está ABIERTO */
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  /* Gira la línea superior 45 grados y la centra */
+  transform: translateY(7px) rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon span {
+  /* Oculta la línea del medio */
+  opacity: 0;
+}
+
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  /* Gira la línea inferior -45 grados y la centra */
+  transform: translateY(-15px) rotate(-45deg);
+}
+/* === FIN: Animación de Hamburguesa a "X" === */
 
 .cart-badge {
   background-color: var(--accent-yellow-hover) !important;
@@ -1058,3 +1085,21 @@ html[data-bs-theme="dark"] body {
   background-color: #555;
 }
 /* --- FIN: Estilos Carousel Productos (Móvil) --- */
+/* --- INICIO: Estilos Modal Login --- */
+
+/* FIX: Texto del modal en Modo Claro */
+[data-bs-theme="light"] #loginModal .modal-content {
+  color: #111;
+}
+
+/* Estilo para el link de "Olvidaste contraseña" */
+#loginModal .form-link {
+  text-decoration: none;
+  color: var(--accent-red);
+}
+#loginModal .form-link:hover {
+  text-decoration: underline;
+  color: var(--accent-red-hover);
+}
+
+/* --- FIN: Estilos Modal Login --- */
