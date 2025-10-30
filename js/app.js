@@ -198,7 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const targets = document.querySelectorAll(
-    ".productos-title, .product-card, " +
+    ".productos-title, " +
+      ".d-lg-block .product-card, " +
       ".colecciones-title, .colec-card, " +
       ".moda-title, .moda-text, .moda-subtext, .btn-moda, .moda-img, " +
       ".why-title, .why-card, " +

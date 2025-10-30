@@ -21,12 +21,14 @@
     <!--Mi estilo-->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#navbarNav"
+    data-bs-offset="75"
+    tabindex="0"
+  >
     <!--Nav bar-->
-    <nav
-      class="fixed-top navbar navbar-expand-lg navbar-custom"
-      data-spy="scroll"
-    >
+    <nav class="fixed-top navbar navbar-expand-lg navbar-custom">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src="img/SVG/Recurso 15.svg" alt="Scratch & Bars" />
@@ -126,121 +128,277 @@
       <div class="container">
         <h2 class="productos-title text-center mb-5">PRODUCTOS</h2>
 
-        <div class="row g-4">
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="product-card h-100">
-              <div class="product-media-wrapper">
-                <img
-                  src="img/tarjetas/tarjeta_1/tarjeta_1_1x.webp"
-                  class="product-img product-img-main"
-                  alt="Buzos"
-                />
-                <img
-                  src="img/tarjetas/tarjeta_1/tarjeta 1.png"
-                  class="product-img product-img-hover"
-                  alt="Buzos (vista alternativa)"
-                />
-              </div>
+        <div class="d-none d-lg-block">
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <article class="product-card h-100">
+                <div class="product-media-wrapper">
+                  <img
+                    src="img/tarjetas/tarjeta_1/tarjeta_1_1x.webp"
+                    class="product-img product-img-main"
+                    alt="Buzos"
+                  />
+                  <img
+                    src="img/tarjetas/tarjeta_1/tarjeta 1.png"
+                    class="product-img product-img-hover"
+                    alt="Buzos (vista alternativa)"
+                  />
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name">BUZOS</h3>
+                  <p class="old-price">$89.99</p>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-card"
+                    data-product-name="BUZOS"
+                    data-price="89.99"
+                    >COMPRAR</a
+                  >
+                </div>
+              </article>
+            </div>
 
-              <div class="product-body">
-                <h3 class="product-name">BUZOS</h3>
-                <p class="old-price">$89.99</p>
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-card"
-                  data-product-name="BUZOS"
-                  data-price="89.99"
-                  >COMPRAR</a
-                >
-              </div>
-            </article>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <article class="product-card h-100">
+                <div class="product-media-wrapper">
+                  <img
+                    src="img/tarjetas/tarjeta_2/tarjeta 2.png"
+                    class="product-img"
+                    alt="Camperas"
+                  />
+                  <img
+                    src="img/tarjetas/tarjeta_2/tarjeta_2_1x.webp"
+                    class="product-img product-img-hover"
+                    alt="Camperas (vista alternativa)"
+                  />
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name">CAMPERAS</h3>
+                  <p class="old-price">$159.99</p>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-card"
+                    data-product-name="CAMPERAS"
+                    data-price="159.99"
+                    >COMPRAR</a
+                  >
+                </div>
+              </article>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <article class="product-card h-100">
+                <div class="product-media-wrapper">
+                  <img
+                    src="img/tarjetas/tarjeta_3/tarjeta 3.png"
+                    class="product-img"
+                    alt="Cargos"
+                  />
+                  <img
+                    src="img/tarjetas/tarjeta_3/tarjeta_3_1x.webp"
+                    class="product-img product-img-hover"
+                    alt="Cargos (vista alternativa)"
+                  />
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name">CARGOS</h3>
+                  <p class="old-price">$79.99</p>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-card"
+                    data-product-name="CARGOS"
+                    data-price="79.99"
+                    >COMPRAR</a
+                  >
+                </div>
+              </article>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <article class="product-card h-100">
+                <div class="product-media-wrapper">
+                  <img
+                    src="img/tarjetas/tarjeta_4/tarjeta 4.png"
+                    class="product-img"
+                    alt="Zapatillas"
+                  />
+                  <img
+                    src="img/tarjetas/tarjeta_4/tarjeta_4_1x.webp"
+                    class="product-img product-img-hover"
+                    alt="Zapatillas (vista alternativa)"
+                  />
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name">ZAPATILLAS</h3>
+                  <p class="old-price">$119.99</p>
+                  <a
+                    href="javascript:void(0)"
+                    class="btn btn-card"
+                    data-product-name="ZAPATILLAS"
+                    data-price="119.99"
+                    >COMPRAR</a
+                  >
+                </div>
+              </article>
+            </div>
           </div>
+        </div>
+        <div class="d-block d-lg-none">
+          <div
+            id="productCarousel"
+            class="carousel slide"
+            data-bs-interval="false"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Producto 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="1"
+                aria-label="Producto 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="2"
+                aria-label="Producto 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="3"
+                aria-label="Producto 4"
+              ></button>
+            </div>
 
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="product-card h-100">
-              <div class="product-media-wrapper">
-                <img
-                  src="img/tarjetas/tarjeta_2/tarjeta 2.png"
-                  class="product-img"
-                  alt="Camperas"
-                />
-                <img
-                  src="img/tarjetas/tarjeta_2/tarjeta_2_1x.webp"
-                  class="product-img product-img-hover"
-                  alt="Camperas (vista alternativa)"
-                />
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="px-4 pb-4">
+                  <article class="product-card h-100">
+                    <div class="product-media-wrapper">
+                      <img
+                        src="img/tarjetas/tarjeta_1/tarjeta_1_1x.webp"
+                        class="product-img product-img-main"
+                        alt="Buzos"
+                      />
+                      <img
+                        src="img/tarjetas/tarjeta_1/tarjeta 1.png"
+                        class="product-img product-img-hover"
+                        alt="Buzos (vista alternativa)"
+                      />
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name">BUZOS</h3>
+                      <p class="old-price">$89.99</p>
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-card"
+                        data-product-name="BUZOS"
+                        data-price="89.99"
+                        >COMPRAR</a
+                      >
+                    </div>
+                  </article>
+                </div>
               </div>
 
-              <div class="product-body">
-                <h3 class="product-name">CAMPERAS</h3>
-                <p class="old-price">$159.99</p>
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-card"
-                  data-product-name="CAMPERAS"
-                  data-price="159.99"
-                  >COMPRAR</a
-                >
-              </div>
-            </article>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="product-card h-100">
-              <div class="product-media-wrapper">
-                <img
-                  src="img/tarjetas/tarjeta_3/tarjeta 3.png"
-                  class="product-img"
-                  alt="Cargos"
-                />
-                <img
-                  src="img/tarjetas/tarjeta_3/tarjeta_3_1x.webp"
-                  class="product-img product-img-hover"
-                  alt="Cargos (vista alternativa)"
-                />
-              </div>
-
-              <div class="product-body">
-                <h3 class="product-name">CARGOS</h3>
-                <p class="old-price">$79.99</p>
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-card"
-                  data-product-name="CARGOS"
-                  data-price="79.99"
-                  >COMPRAR</a
-                >
-              </div>
-            </article>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="product-card h-100">
-              <div class="product-media-wrapper">
-                <img
-                  src="img/tarjetas/tarjeta_4/tarjeta 4.png"
-                  class="product-img"
-                  alt="Zapatillas"
-                />
-                <img
-                  src="img/tarjetas/tarjeta_4/tarjeta_4_1x.webp"
-                  class="product-img product-img-hover"
-                  alt="Zapatillas (vista alternativa)"
-                />
+              <div class="carousel-item">
+                <div class="px-4 pb-4">
+                  <article class="product-card h-100">
+                    <div class="product-media-wrapper">
+                      <img
+                        src="img/tarjetas/tarjeta_2/tarjeta 2.png"
+                        class="product-img"
+                        alt="Camperas"
+                      />
+                      <img
+                        src="img/tarjetas/tarjeta_2/tarjeta_2_1x.webp"
+                        class="product-img product-img-hover"
+                        alt="Camperas (vista alternativa)"
+                      />
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name">CAMPERAS</h3>
+                      <p class="old-price">$159.99</p>
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-card"
+                        data-product-name="CAMPERAS"
+                        data-price="159.99"
+                        >COMPRAR</a
+                      >
+                    </div>
+                  </article>
+                </div>
               </div>
 
-              <div class="product-body">
-                <h3 class="product-name">ZAPATILLAS</h3>
-                <p class="old-price">$119.99</p>
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-card"
-                  data-product-name="ZAPATILLAS"
-                  data-price="119.99"
-                  >COMPRAR</a
-                >
+              <div class="carousel-item">
+                <div class="px-4 pb-4">
+                  <article class="product-card h-100">
+                    <div class="product-media-wrapper">
+                      <img
+                        src="img/tarjetas/tarjeta_3/tarjeta 3.png"
+                        class="product-img"
+                        alt="Cargos"
+                      />
+                      <img
+                        src="img/tarjetas/tarjeta_3/tarjeta_3_1x.webp"
+                        class="product-img product-img-hover"
+                        alt="Cargos (vista alternativa)"
+                      />
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name">CARGOS</h3>
+                      <p class="old-price">$79.99</p>
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-card"
+                        data-product-name="CARGOS"
+                        data-price="79.99"
+                        >COMPRAR</a
+                      >
+                    </div>
+                  </article>
+                </div>
               </div>
-            </article>
+
+              <div class="carousel-item">
+                <div class="px-4 pb-4">
+                  <article class="product-card h-100">
+                    <div class="product-media-wrapper">
+                      <img
+                        src="img/tarjetas/tarjeta_4/tarjeta 4.png"
+                        class="product-img"
+                        alt="Zapatillas"
+                      />
+                      <img
+                        src="img/tarjetas/tarjeta_4/tarjeta_4_1x.webp"
+                        class="product-img product-img-hover"
+                        alt="Zapatillas (vista alternativa)"
+                      />
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name">ZAPATILLAS</h3>
+                      <p class="old-price">$119.99</p>
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-card"
+                        data-product-name="ZAPATILLAS"
+                        data-price="119.99"
+                        >COMPRAR</a
+                      >
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -402,8 +560,7 @@
                 <i class="bi bi-star-fill"></i>
               </div>
               <p class="review-text">
-                “Envío rápido y excelente atención al cliente. ¡La campera que
-                pedí es perfecta!”
+                “Envío rápido y excelente atención al cliente. ”
               </p>
               <p class="review-author">– MIKE R.</p>
             </article>
@@ -427,14 +584,14 @@
         </div>
       </div>
     </section>
-    <!--Boton flotante de WP-->
+    <!--Boton flotante de WP
     <a
       href="https://wa.me/+541132279268?text=Hola,%20Quiero%20asesoramiento%20para%20comprar"
       class="whatsapp-fab"
       target="_blank"
     >
       <i class="bi bi-whatsapp" style="font-size: 2rem"></i>
-    </a>
+    </a>-->
     <!--Footer-->
     <footer class="footer pt-5">
       <div class="container pb-4">
@@ -594,5 +751,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>
+    <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-widget-container">
+      <div
+        class="elfsight-app-4c4a6852-6cc7-4432-a7a7-e5d8cfb19b1d"
+        data-elfsight-app-lazy
+      ></div>
+    </div>
   </body>
 </html>

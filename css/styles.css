@@ -27,6 +27,11 @@
   --bg-content-dark: #141414;
 }
 
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
 /* --- INICIO: Animaciones --- */
 @keyframes fadeInDown {
   from {
@@ -63,9 +68,19 @@
 .navbar-nav .nav-link {
   color: #fff;
   font-weight: 500;
+  transition: color 0.2s ease, font-weight 0.2s ease;
 }
 .navbar-nav .nav-link:hover {
   color: var(--accent-red-hover);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+[data-bs-theme="dark"] .navbar-nav .nav-link.active {
+  color: var(--accent-red);
 }
 
 /* Iconos blancos en CLARO para que no se pierdan */
@@ -131,7 +146,7 @@
 
 /*    HERO */
 .hero {
-  margin-top: 70px;
+  margin-top: 65px;
   background: var(--bg-hero-light);
   min-height: 100vh;
   position: relative;
@@ -226,8 +241,11 @@
 
 /*    PRODUCTOS
     */
-#productos {
-  scroll-margin-top: 50px;
+#productos,
+#colecciones,
+#nosotros,
+#reviews {
+  scroll-margin-top: 75px;
 }
 .productos {
   background: var(--bg-content-light);
@@ -332,9 +350,6 @@
 /*    COLECCIONES
     */
 
-#colecciones {
-  scroll-margin-top: 50px;
-}
 .colecciones {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
@@ -401,9 +416,7 @@
 }
 
 /*    MODA MUNDIAL AUTÉNTICA */
-#nosotros {
-  scroll-margin-top: 50px;
-}
+
 .moda-mundial {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
@@ -514,9 +527,7 @@
 }
 
 /*    REVIEWS */
-#reviews {
-  scroll-margin-top: 50px;
-}
+
 .reviews {
   background: var(--bg-content-light);
   border-top: 3px solid var(--accent-red-hover);
@@ -1003,3 +1014,47 @@
 }
 
 /* --- FIN: Animaciones On-Scroll --- */
+/* --- INICIO: Fix Widget Elfsight --- */
+
+.elfsight-widget-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1050;
+}
+
+html[data-bs-theme="light"] body {
+  background-color: var(--bg-content-light, #e9e9df) !important;
+}
+
+html[data-bs-theme="dark"] body {
+  background-color: #0d0d0d !important;
+}
+
+/* --- INICIO: Estilos Carousel Productos (Móvil) --- */
+
+/* Damos espacio a los indicadores */
+#productCarousel {
+  padding-bottom: 30px;
+}
+
+/* Indicadores (puntitos) oscuros */
+#productCarousel .carousel-indicators [data-bs-target] {
+  background-color: #aaa; /* Color inactivo */
+  height: 4px;
+  width: 25px;
+  opacity: 0.8;
+}
+
+#productCarousel .carousel-indicators .active {
+  background-color: var(
+    --accent-red
+  ); /* Usamos tu color de acento para el activo */
+  opacity: 1;
+}
+
+/* Ajuste para modo oscuro */
+[data-bs-theme="dark"] #productCarousel .carousel-indicators [data-bs-target] {
+  background-color: #555;
+}
+/* --- FIN: Estilos Carousel Productos (Móvil) --- */
