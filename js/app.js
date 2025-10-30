@@ -54,13 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Nuevos elementos para el Total
   const cartTotalContainer = document.getElementById("cartTotalContainer");
   const cartTotalAmount = document.querySelector(".cart-total-amount");
-
+  const checkoutButton = document.querySelector(
+    "#cartModal .modal-footer .btn-buy"
+  );
+  const cartModalInstance = new bootstrap.Modal(
+    document.getElementById("cartModal")
+  );
   if (
     !cartBadge ||
     !cartItemList ||
     !cartEmptyMessage ||
     !cartTotalContainer ||
-    !cartTotalAmount
+    !cartTotalAmount ||
+    !checkoutButton
   ) {
     console.warn("Faltan elementos del DOM para el carrito.");
     return;
@@ -177,6 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   cartItemList.addEventListener("click", handleCartAdjust);
+
+  function handleCheckout() {
+    // 1. Limpia el objeto de datos del carrito
+    cartItems = {};
+
+    updateCart();
+
+    cartModalInstance.hide();
+  }
+
+  checkoutButton.addEventListener("click", handleCheckout);
 
   updateCart();
 })();
